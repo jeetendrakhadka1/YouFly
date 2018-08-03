@@ -1,0 +1,96 @@
+@model YouFly.core.Models.Flight
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Flight</h4>
+        <hr />
+        @*@ViewBag.Message*@
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AirportStart" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AirportStart" class="form-control" />
+                <span asp-validation-for="AirportStart" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AirportEnd" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AirportEnd" class="form-control" />
+                <span asp-validation-for="AirportEnd" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FlightDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FlightDate" class="form-control" />
+                <span asp-validation-for="FlightDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FlightTime" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FlightTime" class="form-control" />
+                <span asp-validation-for="FlightTime" class="text-danger"></span>
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="TravelDistance" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TravelDistance" class="form-control" />
+                <span asp-validation-for="TravelDistance" class="text-danger"></span>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="NumFCSeats" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NumFCSeats" class="form-control" />
+                <span asp-validation-for="NumFCSeats" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FCSeatPrice" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FCSeatPrice" class="form-control" />
+                <span asp-validation-for="FCSeatPrice" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumBusSeats" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NumBusSeats" class="form-control" />
+                <span asp-validation-for="NumBusSeats" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BusSeatPrice" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BusSeatPrice" class="form-control" />
+                <span asp-validation-for="BusSeatPrice" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

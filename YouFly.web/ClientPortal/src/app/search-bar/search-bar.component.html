@@ -1,0 +1,24 @@
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+          
+
+    <div class="nav-wrapper">
+      
+        <div class="input-field">
+          <input type ="text" [(ngModel)]="cityName" />
+          
+          <button class ="btn btn-primary" (click)="grabCity()"> Search </button>
+          <h1>{{cityName}}</h1>
+         
+          <div *ngIf="airports">
+            <ul *ngFor="let airport of airports; let i = index;">
+              <li><a href="/api/airports/{{ airport.id }}" role="button">{{ airport.airportName }}, {{ airport.iata }}</a></li>
+            </ul>
+          </div>
+                  
+        </div>
+    
+    </div>

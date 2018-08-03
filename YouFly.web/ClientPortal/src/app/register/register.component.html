@@ -1,0 +1,32 @@
+<app-root></app-root>
+
+<div class="container">
+    <div class="title">Register</div>
+    <span style = "color: red">{{errorMsg}}</span>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
+            
+            <input type="email" class="form-control" placeholder = "Email" name="Email" [(ngModel)]="user.Email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #Email="ngModel"/>
+            <div *ngIf="f.submitted && !Email.valid" class="help-block" style = "color: red">Email is required and format should be <i>this@example.com</i></div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+            
+            <input type="text" class="form-control"  placeholder = "Username"name="userName" [(ngModel)]="user.userName" #userName="ngModel" required minlength="5"/>
+            <div *ngIf="f.submitted && !userName.valid" class="help-block" style = "color: red">Username is required (minimum 5 characters)</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }">
+            
+            <input type="password" class="form-control" placeholder = "Password" name="Password" [(ngModel)]="user.Password" #Password="ngModel" required minlength="6"/>
+            <div *ngIf="f.submitted && !Password.valid" class="help-block" style = "color: red">Password is required (minimum 6 characters)</div>
+        </div>
+
+        
+        
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Register</button>
+            <!--<img *ngIf="loading" src="loading.gif" />-->
+            <!--<a [routerLink]="['/register']" class="btn btn-link">Register</a>-->
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<nav class="grey darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">YouFly Airlines</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      <!--<span *ngIf = "checkRole">
+          <li><a href="/Flights/">Admin Portal</a></li>
+          </span>-->
+      
+      <ng-container [ngSwitch]= "checkUser">  
+          <ng-container *ngSwitchCase = "true">              
+            <span *ngIf = "checkRole"><li><a href="/Flights/">Admin Portal</a></li></span>
+            <li *ngSwitchCase = "true">{{currentUser.userName}}</li>
+                        
+            <li *ngSwitchCase = "true" type="button" (click) = "logOut()">Logout</li>                        
+          </ng-container>         
+        <ng-container *ngSwitchCase = "false">                           
+            <li><a routerLink="/login">Login</a></li> 
+            <li><a routerLink="/register">Register</a></li>            
+        </ng-container>
+      </ng-container>
+    </ul>
+    
+  </div>
+</nav>

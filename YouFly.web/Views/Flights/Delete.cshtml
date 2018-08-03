@@ -1,0 +1,79 @@
+@model YouFly.core.Models.Flight
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="FlightId" />
+        <dt>
+            @Html.DisplayNameFor(model => model.AirportStart)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AirportStart.IATA)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AirportEnd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AirportEnd.IATA)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FlightDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FlightTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelDistance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TravelDistance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumFCSeats)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumFCSeats)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FCSeatPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FCSeatPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumBusSeats)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumBusSeats)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BusSeatPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BusSeatPrice)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

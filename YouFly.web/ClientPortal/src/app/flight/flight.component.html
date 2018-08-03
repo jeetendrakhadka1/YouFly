@@ -1,0 +1,157 @@
+
+<br/>
+
+<form materialize class="col s12">
+
+  <div class="row">
+    <div class="col s10 offset-s1">
+    <div class="col s3">
+      <h4>Search Flights</h4>
+    </div>
+    <div class="input-field col s3">
+      <input placeholder="Enter City" id="source" [(ngModel)]="flightSource" name="flightSource" type="text" class="validate">
+      <label for="source">From</label>
+    </div>
+    <!--<div class="col s1"><p>TO</p></div>-->
+    <div class="input-field col s3">
+      <input placeholder="Enter City" id="destination" [(ngModel)]="flightDestination" name="flightDestination" type="text" class="validate">
+      <label for="destination">To</label>
+    </div>
+    <div class="col s3"><button class ="btn btn-primary" (click)="searchFlights()"> Search </button></div>
+  </div>
+  </div>
+  
+</form>
+
+<div class="row">
+<table materialize *ngIf="flights" class="highlight">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Start Airport</th>
+      <th>Departure Time</th>
+      <th>Destination Airport</th>
+      <th>ETA</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights; let i = index;">
+      <td>{{ flight.flightDate | date:'fullDate' }}</td>
+      <td>{{ flight.airportStart.airportName }}</td>
+      <td>{{ flight.flightTime | date:'mediumTime' }}</td>
+      <td>{{ flight.airportEnd.airportName }}</td>
+      <td>11:11:11 PM</td>
+      <td>
+        <button class ="btn btn-primary" [routerLink]="['/purchase', flight.flightId]"> Purchase Tickets </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<!--<table materialize *ngIf="flights" class="highlight">
+  
+  <thead>
+    <tr>
+      <th colspan="4">Flights</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>      
+
+      <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+        
+        <li *ngFor="let flight of flights; let i = index;">
+          <div class="collapsible-header">
+
+            <table materialize class="bordered">
+
+              <thead>
+                <tr>
+                  <th colspan="2" width="50%"><h4>Departure</h4></th>
+                  <th colspan="2" width="50%"><h4>Destination</h4></th>
+                </tr>
+              </thead>
+
+              <tbody>    
+
+                <tr>
+                  <th colspan="1">Airport</th>
+                  <th colspan="1">Time</th>
+                  <th colspan="1">Airport</th>
+                  <th colspan="1">ETA</th>
+                </tr>
+
+                <tr>
+
+                  <td colspan="2" width="50%">
+                    <tr>
+                      <td colspan="1">{{ flight.airportStart.airportName }}</td>
+                      <td colspan="1">{{ flight.flightDate | date:'fullDate' }}<br/>{{ flight.flightTime | date:'mediumTime' }}</td>
+                    </tr>
+                  </td>
+
+                  <td colspan="2">
+                    <tr>
+                      <td colspan="1">{{ flight.airportEnd.airportName }}</td>
+                      <td colspan="1">11:11:11 PM</td>
+                    </tr>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>          
+    
+            
+          </div>
+
+          <div class="collapsible-body">
+            <table>
+              <tr>
+                <td colspan="4">
+              <form class="col s12">
+                <div class="input-group">
+                  <label for="business-class">Business Class: ${{ flight.busSeatPrice }}</label>
+                  <input type="checkbox" id="business-class" />
+                </div>
+                <div class="input-group">
+                  <label for="first-class">First Class: ${{ flight.fcSeatPrice }}</label>
+                  <input type="checkbox" id="first-class" />
+                </div>
+                <a class="btn" data-position="bottom">Purchase Ticket</a>
+              </form>
+                </td>
+              </tr>
+            </table>
+          </div>
+          
+        </li>
+      </ul>
+    </tr>
+      <a href="/api/flights/{{ flight.flightId }}" role="button">{{ flight.airportStart.airportName }} to {{ flight.airportEnd.airportName }}</a></li>
+  </tbody>
+</table>-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+      
+</script>
+
+<!-- Modal Structure -->
+<!--<div id="modal1" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>-->

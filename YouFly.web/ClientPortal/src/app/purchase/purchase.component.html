@@ -1,0 +1,91 @@
+
+<app-root></app-root>
+
+
+
+<div *ngIf="myflight">  
+  
+
+<div class="col s6">
+
+<form materialize class="col s6">
+
+    
+    <div class="col s6">
+      <h4>Purchase Tickets</h4>      
+    </div>
+
+    <br/>
+<!--
+    public id: number,
+    public ccNumber: number,
+    public ccExp: number,    
+    public total: number-->
+
+    <div class="input-field col s6">
+      <input placeholder="Number of Tickets" id="fcTicketCount" [(ngModel)]="transaction.numOfFCTks" name="transaction.numOfFCTks" type="number">
+      <label for="fcTicketCount">Number of First Class Seats To Purchase <span>(Available: {{ myflight.numFCSeats }})</span>: </label>
+    </div>
+
+    <br/>
+    
+    <div class="input-field col s6">
+      <input placeholder="Number of Tickets" id="busTicketCount"  [(ngModel)]="transaction.numOfBusTks" name="transaction.numOfBusTks" type="number">
+      <label for="busTicketCount">Number of Business Class Seats to Purchase <span>(Available: {{ myflight.numBusSeats }}): </span></label>
+    </div>
+
+    <br/>
+
+    <div class="input-field col s6">
+      <input placeholder="Total" id="totalPrice" [(ngModel)]="totalPrice" name="totalPrice" type="number">
+      <label for="totalPrice">Total Price: </label>
+    </div>
+
+    <br/>
+
+    <!-- Credit Card -->
+    <div class="input-field col s6">
+      <input placeholder="Credit Card Number" id="ccNumber" [(ngModel)]="transaction.ccNumber" name="transaction.ccNumber" type="number">
+      <label for="ccNumber">Credit Card Number: </label>
+    </div>
+
+    <br/>
+    
+    <div class="input-field col s6">
+      <input placeholder="Credit Card Expiration" id="ccExp"  [(ngModel)]="transaction.ccExp" name="transaction.ccExp" type="number">
+      <label for="ccExp">Credit Card Expiration Date (MMYY): </label>
+    </div>
+
+    <br/>
+    
+    <div class="input-field col s12">
+      <input placeholder="Username" id="username" [(ngModel)]="currentUser.userName" name="currentUser.userName" type="text">
+      <label for="username">Username</label>
+    </div>
+
+    <br/>
+
+    <!--<div class="input-field col s12">
+      
+    </div>-->
+
+    <br/>
+
+    <div class="input-field col s12">
+      <input placeholder="id" id="userid" [(ngModel)]="currentUser.id" name="currentUser.id" type="text" >
+      <label for="userid">User id</label>
+    </div>
+    
+    <div class="col s6"><button class ="btn btn-primary" (click)="placeOrder()"> Place Order </button></div>
+  
+</form>
+</div>
+
+<div class="col s6">
+<p>Business Class Seats: </p>
+  <p>Business Class Seats: {{ myflight.busSeatPrice }}</p>
+  <p>Business Class Seats: </p>
+  <p>Business Class Seats: {{ myflight.fcSeatPrice }}</p>
+</div>
+
+</div>
